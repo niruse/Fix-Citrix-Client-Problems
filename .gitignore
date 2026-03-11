@@ -1,0 +1,39 @@
+# PowerShell files
+*.psd1
+*.psm1
+*.ps1xml
+*.clixml
+*.psc1
+*.pssc
+
+# Citrix specific
+*.ica
+
+# Logs and databases
+*.log
+*.sqlite
+*.db
+
+# Temporary and cache files
+*.tmp
+*.temp
+*.bak
+*.swp
+*~
+thumbs.db
+
+# OS specific files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+
+# IDE / Editor folders
+.vscode/
+.idea/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# PowerShell History
+*History.txt
