@@ -39,7 +39,7 @@ When Citrix processes crash, get forcefully killed, or fail during automatic bac
 > [!IMPORTANT]
 > **REQUIRED: Install Fresh Citrix Workspace After MSI Removal**  
 > If you uninstall or purge the MSI components using this code, the broken repair loop is stopped, but the client package is cleared. **You are REQUIRED to download and install a fresh copy of Citrix Workspace App** to restore clean binaries, ICA file associations, and registry entries:  
-> [👉 Download Latest Citrix Workspace App for Windows (Official Citrix Portal)](https://www.citrix.com/downloads/workspace-app/windows/workspace-app-for-windows-latest.html)
+> [👉 Download Workspace App for Windows (Official Citrix Portal)](https://www.citrix.com/downloads/workspace-app/windows/)
 
 ### 2. Remote Desktop (RDP / mstsc.exe) Hanging
 * **The Root Cause:** Killing `wfica32.exe` mid-session leaves Windows display and terminal networking hooks locked. Opening Windows Remote Desktop (`mstsc.exe`) afterward locks up indefinitely.

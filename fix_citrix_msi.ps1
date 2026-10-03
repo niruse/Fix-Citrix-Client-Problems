@@ -292,10 +292,10 @@ Write-Host "     You MUST now download and install a fresh copy of Citrix Worksp
 Write-Host "     Since orphaned MSI components were purged, a clean reinstall is required" -ForeColor White
 Write-Host "     to restore missing client binaries and file associations." -ForeColor White
 Write-Host "     Official Download URL:" -ForeColor Cyan
-Write-Host "     https://www.citrix.com/downloads/workspace-app/windows/workspace-app-for-windows-latest.html" -ForeColor Cyan
+Write-Host "     https://www.citrix.com/downloads/workspace-app/windows/" -ForeColor Cyan
 Write-Host "==========================================================================" -ForeColor Green
 Write-Host ""
 $openBrowser = Read-Host " Would you like to open the Citrix download page now in your browser? (Y/N)"
 if ($openBrowser -match "^[Yy]") {
-    Start-Process "https://www.citrix.com/downloads/workspace-app/windows/workspace-app-for-windows-latest.html"
+    Start-Process "https://www.citrix.com/downloads/workspace-app/windows/"
 }
