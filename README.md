@@ -11,6 +11,10 @@ When Citrix processes crash, get forcefully killed, or fail during automatic bac
 ### 1. "The feature you are trying to use is on a network resource that is unavailable (ICAWebWrapper.msi)" `[NEW FEATURE]`
 
 #### Sample Error Dialog:
+<p align="center">
+  <img src="assets/icawebwrapper_error.png" alt="Citrix Online Plug-in ICAWebWrapper.msi Unavailable Network Resource Error" width="450">
+</p>
+
 ```text
 +------------------------------------------------------------------------+
 | Online Plug-in                                                    [X]  |
