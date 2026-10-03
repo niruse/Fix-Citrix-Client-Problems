@@ -104,9 +104,9 @@ You can also run specific repair actions directly via command-line switches with
 
 Individual repair scripts can also be run independently:
 
-* [`fix_citrix_msi.ps1`](file:///c:/Users/Kiosk/github/fix_citrix/fix_citrix_msi.ps1) - Dedicated MSI and `ICAWebWrapper.msi` registry repair with safety warning and Desktop `.reg` backup.
-* [`fix_citrix_resolution.ps1`](file:///c:/Users/Kiosk/github/fix_citrix/fix_citrix_resolution.ps1) - High-DPI scaling configuration.
-* [`remove_resolution_limits.ps1`](file:///c:/Users/Kiosk/github/fix_citrix/remove_resolution_limits.ps1) - Removes `MaxMonitorDimension` cap.
-* [`clean_compatibility_flags.ps1`](file:///c:/Users/Kiosk/github/fix_citrix/clean_compatibility_flags.ps1) - Cleans Windows AppCompat layers.
-* [`verify_fix_status.ps1`](file:///c:/Users/Kiosk/github/fix_citrix/verify_fix_status.ps1) - Verifies current system configuration.
-* [`hard_reset_citrix.ps1`](file:///c:/Users/Kiosk/github/fix_citrix/hard_reset_citrix.ps1) - Full preference and cache reset.
+* [`fix_citrix_msi.ps1`](fix_citrix_msi.ps1) - Dedicated MSI and `ICAWebWrapper.msi` registry repair with safety warning and Desktop `.reg` backup.
+* [`fix_citrix_resolution.ps1`](fix_citrix_resolution.ps1) - High-DPI scaling configuration.
+* [`remove_resolution_limits.ps1`](remove_resolution_limits.ps1) - Removes `MaxMonitorDimension` cap.
+* [`clean_compatibility_flags.ps1`](clean_compatibility_flags.ps1) - Cleans Windows AppCompat layers.
+* [`verify_fix_status.ps1`](verify_fix_status.ps1) - Verifies current system configuration.
+* [`hard_reset_citrix.ps1`](hard_reset_citrix.ps1) - Full preference and cache reset.
