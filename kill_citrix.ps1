@@ -481,6 +481,7 @@ while ($true) {
     Write-Host "      - Purge orphaned Windows Installer component locks (self-repair loops)" -ForeColor Gray
     Write-Host "      - Remove stuck InstallHelper startup auto-run registry entries" -ForeColor Gray
     Write-Host "      - [!] Includes safety warning & automatic Desktop registry backup" -ForeColor DarkYellow
+    Write-Host "      - [!] REQUIRED: Download & install fresh Citrix Workspace after cleanup" -ForeColor Red
     Write-Host ""
     Write-Host "  [3] Advanced Tools & Diagnostics (Verify, Hard Reset, etc.)" -ForeColor Cyan
     Write-Host ""

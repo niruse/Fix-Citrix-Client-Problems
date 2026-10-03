@@ -287,8 +287,15 @@ Write-Host "  * $purgedComponentCount component locks referencing missing ICAWeb
 Write-Host "  * Orphaned product registration keys cleared." -ForeColor White
 Write-Host "  * Windows Installer will no longer trigger the 'network resource unavailable' popup." -ForeColor White
 Write-Host ""
-Write-Host " Recommended Next Steps:" -ForeColor Yellow
-Write-Host "  1. If you wish to use Citrix, download and run the latest Citrix Workspace installer." -ForeColor Yellow
-Write-Host "  2. It will now install cleanly without getting blocked by missing MSI packages." -ForeColor Yellow
+Write-Host " [!] REQUIRED NEXT STEP:" -ForeColor Red
+Write-Host "     You MUST now download and install a fresh copy of Citrix Workspace App." -ForeColor Yellow
+Write-Host "     Since orphaned MSI components were purged, a clean reinstall is required" -ForeColor White
+Write-Host "     to restore missing client binaries and file associations." -ForeColor White
+Write-Host "     Official Download URL:" -ForeColor Cyan
+Write-Host "     https://www.citrix.com/downloads/workspace-app/windows/workspace-app-for-windows-latest.html" -ForeColor Cyan
 Write-Host "==========================================================================" -ForeColor Green
 Write-Host ""
+$openBrowser = Read-Host " Would you like to open the Citrix download page now in your browser? (Y/N)"
+if ($openBrowser -match "^[Yy]") {
+    Start-Process "https://www.citrix.com/downloads/workspace-app/windows/workspace-app-for-windows-latest.html"
+}

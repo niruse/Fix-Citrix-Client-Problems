@@ -36,6 +36,11 @@ When Citrix processes crash, get forcefully killed, or fail during automatic bac
 * **The Root Cause:** When Citrix Workspace updates or uninstalls incompletely, Windows Installer retains hundreds of orphaned component locks (`UserData\...\Components`) and an auto-start `InstallHelper.exe` entry in the Windows `Run` key. Every time Windows boots or Citrix is invoked, Windows Installer triggers a silent self-repair looking for the original `ICAWebWrapper.msi` source package. Because the original folder no longer contains that exact package version, Windows locks up with an unavailable network resource dialog.
 * **The Fix:** Option `[2]` (or `.\fix_citrix_msi.ps1`) presents a clear **safety warning**, prompts for explicit user confirmation, automatically exports a **safety registry backup (.reg)** to your Desktop, terminates deadlocked installer processes, purges the orphaned component locks, removes the `InstallHelper` auto-start trigger, and clears broken installer caches.
 
+> [!IMPORTANT]
+> **REQUIRED: Install Fresh Citrix Workspace After MSI Removal**  
+> If you uninstall or purge the MSI components using this code, the broken repair loop is stopped, but the client package is cleared. **You are REQUIRED to download and install a fresh copy of Citrix Workspace App** to restore clean binaries, ICA file associations, and registry entries:  
+> [👉 Download Latest Citrix Workspace App for Windows (Official Citrix Portal)](https://www.citrix.com/downloads/workspace-app/windows/workspace-app-for-windows-latest.html)
+
 ### 2. Remote Desktop (RDP / mstsc.exe) Hanging
 * **The Root Cause:** Killing `wfica32.exe` mid-session leaves Windows display and terminal networking hooks locked. Opening Windows Remote Desktop (`mstsc.exe`) afterward locks up indefinitely.
 * **The Fix:** Sweeps for hidden deadlocked RDP client instances and restarts `TermService` (Remote Desktop Services) to release hooks without requiring a computer reboot.
