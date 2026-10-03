@@ -476,9 +476,10 @@ while ($true) {
     Write-Host "      - Restore High-DPI scaling & clear screen resolution caps" -ForeColor Gray
     Write-Host ""
     Write-Host "  [2] Fix MSI & Installer Loop (Specialized Fix)" -ForeColor Yellow
-    Write-Host "      - Resolve 'ICAWebWrapper.msi / network resource unavailable' popup" -ForeColor Gray
-    Write-Host "      - Remove orphaned Windows Installer locks (668+ broken component keys)" -ForeColor Gray
-    Write-Host "      - Remove stuck InstallHelper startup auto-run triggers" -ForeColor Gray
+    Write-Host "      - Target Error: 'The feature you are trying to use is on a network" -ForeColor DarkYellow
+    Write-Host "        resource that is unavailable: ICAWebWrapper.msi / Online Plug-in'" -ForeColor DarkYellow
+    Write-Host "      - Purge orphaned Windows Installer component locks (self-repair loops)" -ForeColor Gray
+    Write-Host "      - Remove stuck InstallHelper startup auto-run registry entries" -ForeColor Gray
     Write-Host "      - [!] Includes safety warning & automatic Desktop registry backup" -ForeColor DarkYellow
     Write-Host ""
     Write-Host "  [3] Advanced Tools & Diagnostics (Verify, Hard Reset, etc.)" -ForeColor Cyan

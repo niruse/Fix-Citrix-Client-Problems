@@ -26,9 +26,16 @@ Write-Host ""
 Write-Host "==========================================================================" -ForeColor Red
 Write-Host "                    CRITICAL CITRIX MSI REGISTRY REPAIR                   " -ForeColor Yellow
 Write-Host "==========================================================================" -ForeColor Red
-Write-Host " This tool fixes the recurring loop:" -ForeColor White
-Write-Host "   'The feature you are trying to use is on a network resource that is" -ForeColor Gray
-Write-Host "    unavailable: ICAWebWrapper.msi / Online Plug-in'" -ForeColor Gray
+Write-Host " TARGET ERROR FIXED BY THIS SCRIPT:" -ForeColor Yellow
+Write-Host " +----------------------------------------------------------------------+" -ForeColor DarkGray
+Write-Host " | Online Plug-in                                                  [X]  |" -ForeColor DarkGray
+Write-Host " | The feature you are trying to use is on a network resource that     |" -ForeColor DarkGray
+Write-Host " | is unavailable.                                                      |" -ForeColor DarkGray
+Write-Host " |                                                                      |" -ForeColor DarkGray
+Write-Host " | Click OK to try again, or enter an alternate path to a folder        |" -ForeColor DarkGray
+Write-Host " | containing the installation package 'ICAWebWrapper.msi' in the box. |" -ForeColor DarkGray
+Write-Host " | Use source: C:\Program Files (x86)\Citrix\Citrix Workspace 26.x.x\   |" -ForeColor DarkGray
+Write-Host " +----------------------------------------------------------------------+" -ForeColor DarkGray
 Write-Host ""
 Write-Host " WHAT THIS ACTION WILL DO:" -ForeColor Yellow
 Write-Host "  1. Terminate stuck Windows Installer (msiexec) and Citrix install helpers." -ForeColor White

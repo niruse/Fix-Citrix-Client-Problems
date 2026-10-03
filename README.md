@@ -9,6 +9,26 @@ A comprehensive PowerShell repair bot and diagnostic suite for Citrix Receiver a
 When Citrix processes crash, get forcefully killed, or fail during automatic background updates, Windows is left in an unstable state. This bot actively diagnoses and repairs each broken subsystem:
 
 ### 1. "The feature you are trying to use is on a network resource that is unavailable (ICAWebWrapper.msi)" `[NEW FEATURE]`
+
+#### Sample Error Dialog:
+```text
++------------------------------------------------------------------------+
+| Online Plug-in                                                    [X]  |
++------------------------------------------------------------------------+
+|  The feature you are trying to use is on a network resource that is   |
+|  unavailable.                                                          |
+|                                                                        |
+|  Click OK to try again, or enter an alternate path to a folder         |
+|  containing the installation package 'ICAWebWrapper.msi' in the        |
+|  box below.                                                            |
+|                                                                        |
+|  Use source:                                                           |
+|  [ C:\Program Files (x86)\Citrix\Citrix Workspace 26.x.x.x\   v ]      |
+|                                               [  OK  ]  [ Cancel ]     |
+|                                               [ Browse... ]            |
++------------------------------------------------------------------------+
+```
+
 * **The Root Cause:** When Citrix Workspace updates or uninstalls incompletely, Windows Installer retains hundreds of orphaned component locks (`UserData\...\Components`) and an auto-start `InstallHelper.exe` entry in the Windows `Run` key. Every time Windows boots or Citrix is invoked, Windows Installer triggers a silent self-repair looking for the original `ICAWebWrapper.msi` source package. Because the original folder no longer contains that exact package version, Windows locks up with an unavailable network resource dialog.
 * **The Fix:** Option `[2]` (or `.\fix_citrix_msi.ps1`) presents a clear **safety warning**, prompts for explicit user confirmation, automatically exports a **safety registry backup (.reg)** to your Desktop, terminates deadlocked installer processes, purges the orphaned component locks, removes the `InstallHelper` auto-start trigger, and clears broken installer caches.
 
