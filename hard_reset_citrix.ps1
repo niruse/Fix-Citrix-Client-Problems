@@ -70,16 +70,24 @@ if (!(Test-Path $dpiKey)) {
     New-Item -Path $dpiKey -Force | Out-Null
 }
 Set-ItemProperty -Path $dpiKey -Name "DpiAware" -Value 1 -Type DWord -Force
-Write-Host "Restored High DPI setting (DpiAware=1)." -ForeColor Green
+Write-Host "Restored High DPI setting (DpiAware=1)." -ForegroundColor Green
 
 # --- 6. Reset FullScreen preference ---
 $icaClientKey = "HKCU:\Software\Citrix\ICA Client"
 if (Test-Path $icaClientKey) {
     Set-ItemProperty -Path $icaClientKey -Name "UseFullScreen" -Value 0 -Type DWord -Force
-    Write-Host "Set specific Windowed Mode preference." -ForeColor Green
+    Write-Host "Set specific Windowed Mode preference." -ForegroundColor Green
 }
 
-Write-Host "Hard Reset Complete." -ForeColor Cyan
+# --- 7. Re-Apply Alt-Tab Hotkey Passthrough (CTX232298) ---
+$altTabKey = "HKCU:\Software\Citrix\ICA Client\Engine\Lockdown Profiles\All Regions\Lockdown\Virtual Channels\Keyboard"
+if (!(Test-Path $altTabKey)) {
+    New-Item -Path $altTabKey -Force | Out-Null
+}
+Set-ItemProperty -Path $altTabKey -Name "TransparentKeyPassthrough" -Value "remote" -Type String -Force
+Write-Host "Restored Alt-Tab Hotkey Passthrough setting (TransparentKeyPassthrough=remote)." -ForegroundColor Green
+
+Write-Host "Hard Reset Complete." -ForegroundColor Cyan
 Write-Host "1. Restart your computer (highly recommended) or just start Citrix Workspace."
 Write-Host "2. You may be asked to 'Add Account'. Enter your Store URL."
 Write-Host "3. Log in and launch your session."
